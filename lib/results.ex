@@ -1,6 +1,6 @@
-defmodule BrittleResults do
+defmodule Brittle.Results do
   @moduledoc """
-  Documentation for BrittleResults.
+  Documentation for Brittle.Results.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule BrittleResults do
 
   ## Examples
 
-      iex> BrittleResults.hello
+      iex> Brittle.Results.hello
       :world
 
   """

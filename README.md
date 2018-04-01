@@ -1,4 +1,4 @@
-# BrittleResults
+# Brittle.Results
 
 **TODO: Add description**
 

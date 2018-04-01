@@ -1,4 +1,4 @@
-defmodule BrittleResults.MixProject do
+defmodule Brittle.Results.MixProject do
   use Mix.Project
 
   def project do
