@@ -7,6 +7,7 @@ defmodule Brittle.Results.MixProject do
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
+      aliases: aliases(),
       deps: deps()
     ]
   end
@@ -22,5 +23,11 @@ defmodule Brittle.Results.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [{:sqlite_ecto2, "~> 2.2"}]
+  end
+
+  defp aliases do
+    [
+      "test": ["ecto.drop --quiet", "ecto.create --quiet", "ecto.migrate --quiet", "test"]
+    ]
   end
 end
