@@ -5,12 +5,13 @@ defmodule Brittle.Run do
   schema "runs" do
     field(:test_count, :integer)
     field(:failure_count, :integer)
+    field(:excluded_count, :integer)
     field(:duration, :integer)
 
     timestamps()
   end
 
   def changeset(run, attributes) do
-    cast(run, attributes, ~w(test_count failure_count duration))
+    cast(run, attributes, ~w(test_count failure_count excluded_count duration))
   end
 end
