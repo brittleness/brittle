@@ -6,6 +6,19 @@ defmodule Brittle.Results.Application do
   use Application
 
   def start(_type, _args) do
+    case Application.fetch_env(:brittle_results, Brittle.Repo) do
+      :error ->
+        Application.put_env(
+          :brittle_results,
+          Brittle.Repo,
+          adapter: Sqlite.Ecto2,
+          database: "brittle.sqlite3"
+        )
+
+      _ ->
+        :ok
+    end
+
     # List all child processes to be supervised
     children = [
       Brittle.Repo
