@@ -22,7 +22,10 @@ defmodule Brittle.Results.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [{:sqlite_ecto2, "~> 2.2"}]
+    [
+      {:jason, "~> 1.0"},
+      {:sqlite_ecto2, "~> 2.2"}
+    ]
   end
 
   defp aliases do
