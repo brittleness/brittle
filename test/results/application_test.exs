@@ -1,5 +1,5 @@
 defmodule Brittle.Results.ApplicationTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
   test "start/2 falls back to the default configuration" do
     config = Application.fetch_env!(:brittle_results, Brittle.Repo)

@@ -1,5 +1,5 @@
 defmodule Brittle.ResultsTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias Brittle.{Results, Run}
 
   setup do
