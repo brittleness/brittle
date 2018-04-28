@@ -7,6 +7,7 @@ defmodule Brittle.ResultsTest do
 
     [
       attributes: %{
+        suite: "brittle_ex_unit",
         hostname: "Alices-MBP.fritz.box",
         branch: "develop",
         revision: "db017e7f18b35d69a2b4305efc0f002bb3675669",
@@ -22,6 +23,7 @@ defmodule Brittle.ResultsTest do
   test "create_run/1 creates a run", %{attributes: attributes} do
     assert {:ok, %Run{} = run} = Results.create_run(attributes)
 
+    assert run.suite == "brittle_ex_unit"
     assert run.hostname == "Alices-MBP.fritz.box"
     assert run.branch == "develop"
     assert run.revision == "db017e7f18b35d69a2b4305efc0f002bb3675669"

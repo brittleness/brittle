@@ -4,6 +4,7 @@ defmodule Brittle.Run do
 
   schema "runs" do
     field(:digest, :string)
+    field(:suite, :string)
     field(:hostname, :string)
     field(:branch, :string)
     field(:dirty, :boolean)
@@ -20,7 +21,7 @@ defmodule Brittle.Run do
     cast(
       run,
       attributes,
-      ~w(digest hostname branch revision dirty test_count failure_count excluded_count duration)
+      ~w(digest suite hostname branch revision dirty test_count failure_count excluded_count duration)
     )
   end
 end
