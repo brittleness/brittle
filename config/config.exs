@@ -5,4 +5,7 @@ config :brittle_results, Brittle.Repo,
   database: "brittle.sqlite3",
   pool: Ecto.Adapters.SQL.Sandbox
 
+config :brittle_results,
+  system: SystemMock
+
 config :brittle_results, ecto_repos: [Brittle.Repo]

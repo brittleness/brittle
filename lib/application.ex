@@ -2,6 +2,7 @@ defmodule Brittle.Results.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
+  @system Application.get_env(:brittle_results, :system, System)
 
   use Application
 
@@ -12,7 +13,7 @@ defmodule Brittle.Results.Application do
           :brittle_results,
           Brittle.Repo,
           adapter: Sqlite.Ecto2,
-          database: "brittle.sqlite3"
+          database: "#{@system.user_home!()}/brittle.sqlite3"
         )
 
       _ ->
