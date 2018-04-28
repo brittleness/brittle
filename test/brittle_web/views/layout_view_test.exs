@@ -1,3 +1,3 @@
-defmodule BrittleWeb.LayoutViewTest do
-  use BrittleWeb.ConnCase, async: true
+defmodule Brittle.Web.LayoutViewTest do
+  use Brittle.Web.ConnCase, async: true
 end

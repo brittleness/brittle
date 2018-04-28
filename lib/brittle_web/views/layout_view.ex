@@ -1,3 +1,3 @@
-defmodule BrittleWeb.LayoutView do
-  use BrittleWeb, :view
+defmodule Brittle.Web.LayoutView do
+  use Brittle.Web, :view
 end

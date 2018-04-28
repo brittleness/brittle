@@ -1,5 +1,5 @@
-defmodule BrittleWeb.Router do
-  use BrittleWeb, :router
+defmodule Brittle.Web.Router do
+  use Brittle.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -9,7 +9,7 @@ defmodule BrittleWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  scope "/", BrittleWeb do
+  scope "/", Brittle.Web do
     pipe_through :browser # Use the default browser stack
 
   end

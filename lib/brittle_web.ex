@@ -1,12 +1,12 @@
-defmodule BrittleWeb do
+defmodule Brittle.Web do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use BrittleWeb, :controller
-      use BrittleWeb, :view
+      use Brittle.Web, :controller
+      use Brittle.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,17 @@ defmodule BrittleWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: BrittleWeb
+      use Phoenix.Controller, namespace: Brittle.Web
 
       import Plug.Conn
-      alias BrittleWeb.Router.Helpers, as: Routes
+      alias Brittle.Web.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View, root: "lib/brittle_web/templates",
-                        namespace: BrittleWeb
+                        namespace: Brittle.Web
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
@@ -37,8 +37,7 @@ defmodule BrittleWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import BrittleWeb.ErrorHelpers
-      alias BrittleWeb.Router.Helpers, as: Routes
+      alias Brittle.Web.Router.Helpers, as: Routes
     end
   end
 

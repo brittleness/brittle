@@ -1,4 +1,4 @@
-defmodule BrittleWeb.Endpoint do
+defmodule Brittle.Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :brittle
 
   # Serve at "/" the static files from "priv/static" directory.
@@ -36,7 +36,7 @@ defmodule BrittleWeb.Endpoint do
     key: "_brittle_key",
     signing_salt: "aMQaGFm9"
 
-  plug BrittleWeb.Router
+  plug Brittle.Web.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

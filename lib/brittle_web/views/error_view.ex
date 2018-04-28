@@ -1,5 +1,5 @@
-defmodule BrittleWeb.ErrorView do
-  use BrittleWeb, :view
+defmodule Brittle.Web.ErrorView do
+  use Brittle.Web, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

@@ -9,7 +9,7 @@ defmodule Brittle.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      BrittleWeb.Endpoint,
+      Brittle.Web.Endpoint,
       # Starts a worker by calling: Brittle.Worker.start_link(arg)
       # {Brittle.Worker, arg},
     ]
@@ -23,7 +23,7 @@ defmodule Brittle.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    BrittleWeb.Endpoint.config_change(changed, removed)
+    Brittle.Web.Endpoint.config_change(changed, removed)
     :ok
   end
 end
