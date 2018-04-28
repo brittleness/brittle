@@ -33,7 +33,6 @@ defmodule Brittle.MixProject do
   defp deps do
     [
       {:phoenix, github: "phoenixframework/phoenix", override: true},
-      {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:jason, "~> 1.0"},
