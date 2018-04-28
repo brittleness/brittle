@@ -10,7 +10,7 @@ config :brittle, Brittle.Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "1MAFVuhrdll2rcYWilTsD5GJ1yRkCMByUw4QMOo61ht7B/Yk6Xe7gildg0SAo/Zt",
   render_errors: [view: Brittle.Web.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Brittle.PubSub,
+  pubsub: [name: Brittle.Web.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

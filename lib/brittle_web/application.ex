@@ -1,4 +1,4 @@
-defmodule Brittle.Application do
+defmodule Brittle.Web.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -10,13 +10,13 @@ defmodule Brittle.Application do
     children = [
       # Start the endpoint when the application starts
       Brittle.Web.Endpoint,
-      # Starts a worker by calling: Brittle.Worker.start_link(arg)
-      # {Brittle.Worker, arg},
+      # Starts a worker by calling: Brittle.Web.Worker.start_link(arg)
+      # {Brittle.Web.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Brittle.Supervisor]
+    opts = [strategy: :one_for_one, name: Brittle.Web.Supervisor]
     Supervisor.start_link(children, opts)
   end
 

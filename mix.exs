@@ -1,4 +1,4 @@
-defmodule Brittle.MixProject do
+defmodule Brittle.Web.MixProject do
   use Mix.Project
 
   def project do
@@ -18,7 +18,7 @@ defmodule Brittle.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Brittle.Application, []},
+      mod: {Brittle.Web.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

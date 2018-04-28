@@ -1,4 +1,4 @@
-# Brittle
+# Brittle.Web
 
 To start your Phoenix server:
 
