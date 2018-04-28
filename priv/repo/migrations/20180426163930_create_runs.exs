@@ -7,6 +7,7 @@ defmodule Brittle.Repo.Migrations.CreateRuns do
       add(:hostname, :string)
       add(:branch, :string)
       add(:revision, :string)
+      add(:dirty, :boolean)
       add(:test_count, :integer)
       add(:failure_count, :integer)
       add(:excluded_count, :integer)
