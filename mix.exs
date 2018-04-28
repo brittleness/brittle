@@ -7,7 +7,7 @@ defmodule Brittle.MixProject do
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers,
+      compilers: [:phoenix] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
       deps: deps()
     ]
@@ -36,7 +36,6 @@ defmodule Brittle.MixProject do
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:cowboy, "~> 1.0"}
     ]

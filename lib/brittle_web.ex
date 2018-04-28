@@ -22,7 +22,6 @@ defmodule BrittleWeb do
       use Phoenix.Controller, namespace: BrittleWeb
 
       import Plug.Conn
-      import BrittleWeb.Gettext
       alias BrittleWeb.Router.Helpers, as: Routes
     end
   end
@@ -39,7 +38,6 @@ defmodule BrittleWeb do
       use Phoenix.HTML
 
       import BrittleWeb.ErrorHelpers
-      import BrittleWeb.Gettext
       alias BrittleWeb.Router.Helpers, as: Routes
     end
   end

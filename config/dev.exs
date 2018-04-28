@@ -34,7 +34,6 @@ config :brittle, BrittleWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
       ~r{lib/brittle_web/views/.*(ex)$},
       ~r{lib/brittle_web/templates/.*(eex)$}
     ]
