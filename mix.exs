@@ -5,7 +5,7 @@ defmodule Brittle.Results.MixProject do
     [
       app: :brittle_results,
       version: "0.1.0",
-      elixir: "~> 1.6",
+      elixir: "~> 1.5",
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       elixirc_paths: elixirc_paths(Mix.env),
