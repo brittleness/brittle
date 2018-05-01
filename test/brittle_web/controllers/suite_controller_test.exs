@@ -1,9 +1,9 @@
 defmodule Brittle.Web.SuiteControllerTest do
   use Brittle.Web.ConnCase
-  alias Brittle.{Repo, Suite}
+  import Brittle.Fixtures
 
   setup do
-    Repo.insert!(%Suite{name: "brittle_web"})
+    fixture!(:suite)
     :ok
   end
 
@@ -12,6 +12,6 @@ defmodule Brittle.Web.SuiteControllerTest do
     response = html_response(conn, 200)
 
     assert response =~ "Suites"
-    assert response =~ "brittle_web"
+    assert response =~ "phoenix"
   end
 end
