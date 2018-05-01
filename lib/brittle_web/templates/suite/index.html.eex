@@ -9,7 +9,7 @@
   <tbody>
     <%= for suite <- @suites do %>
     <tr>
-      <td><%= suite.name %></td>
+      <td><%= link(suite.name, to: Routes.suite_run_path(@conn, :index, suite)) %></td>
     </tr>
     <% end %>
   </tbody>

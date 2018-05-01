@@ -1,0 +1,22 @@
+<h1>Runs for <%= @suite.name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Run</th>
+      <th>Hostname</th>
+      <th>Branch</th>
+      <th>Revision</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for run <- @suite.runs do %>
+    <tr>
+      <td><%= run.id %></td>
+      <td><%= run.hostname %></td>
+      <td><%= run.branch %></td>
+      <td><%= run.revision %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,5 +1,4 @@
 defmodule Brittle.Web.SuiteController do
-  require Ecto.Query
   use Brittle.Web, :controller
   alias Brittle.{Repo, Suite}
 

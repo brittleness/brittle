@@ -13,6 +13,8 @@ defmodule Brittle.Web.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", SuiteController, :index
-    resources "/suites", SuiteController, only: [:index]
+    resources "/suites", SuiteController, only: [:index] do
+      resources "/runs", RunController, only: [:index]
+    end
   end
 end
