@@ -8,3 +8,8 @@ config :brittle_web, Brittle.Web.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :brittle_results, Brittle.Repo,
+  adapter: Sqlite.Ecto2,
+  database: "brittle.sqlite3",
+  pool: Ecto.Adapters.SQL.Sandbox
