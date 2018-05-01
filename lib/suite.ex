@@ -1,8 +1,11 @@
 defmodule Brittle.Suite do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Brittle.Run
 
   schema "suites" do
+    has_many(:runs, Run)
+
     field(:name, :string)
 
     timestamps()
