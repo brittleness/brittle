@@ -1,6 +1,6 @@
 defmodule Brittle.ResultsTest do
   use ExUnit.Case, async: true
-  alias Brittle.{Results, Suite, Run}
+  alias Brittle.{Repo, Results, Suite, Run}
 
   setup do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Brittle.Repo)
@@ -42,5 +42,11 @@ defmodule Brittle.ResultsTest do
     assert {:ok, %Run{suite: %Suite{} = suite} = run} = Results.create_run(attributes)
 
     assert suite.name == "brittle_ex_unit"
+  end
+
+  test "create_run/1 links runs to existing suites", %{attributes: attributes} do
+    %Suite{id: id} = Repo.insert!(%Suite{name: "brittle_ex_unit"})
+
+    assert {:ok, %Run{suite_id: ^id}} = Results.create_run(attributes)
   end
 end

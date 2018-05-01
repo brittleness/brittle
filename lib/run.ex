@@ -2,6 +2,7 @@ defmodule Brittle.Run do
   use Ecto.Schema
   import Ecto.Changeset
   alias Brittle.Suite
+  require Ecto.Query
 
   schema "runs" do
     belongs_to(:suite, Suite)
@@ -25,6 +26,15 @@ defmodule Brittle.Run do
       attributes,
       ~w(digest hostname branch revision dirty test_count failure_count excluded_count duration)
     )
-    |> cast_assoc(:suite)
+    |> put_assoc(:suite, suite(attributes.suite))
+  end
+
+  def suite(attributes) do
+    case Suite
+         |> Ecto.Query.where(name: ^attributes.name)
+         |> Brittle.Repo.one() do
+      %Suite{} = suite -> suite
+      _ -> Suite.changeset(%Suite{}, attributes)
+    end
   end
 end
