@@ -1,1 +1,16 @@
 <h1>Suites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for suite <- @suites do %>
+    <tr>
+      <td><%= suite.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
