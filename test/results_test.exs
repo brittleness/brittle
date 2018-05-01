@@ -21,7 +21,7 @@ defmodule Brittle.ResultsTest do
   end
 
   test "create_run/1 creates a run", %{attributes: attributes} do
-    assert {:ok, %Run{} = run} = Results.create_run(attributes)
+    {:ok, %Run{} = run} = Results.create_run(attributes)
 
     assert run.hostname == "Alices-MBP.fritz.box"
     assert run.branch == "develop"
@@ -39,7 +39,7 @@ defmodule Brittle.ResultsTest do
   end
 
   test "create_run/1 creates a suite", %{attributes: attributes} do
-    assert {:ok, %Run{suite: %Suite{} = suite} = run} = Results.create_run(attributes)
+    {:ok, %Run{suite: %Suite{} = suite} = run} = Results.create_run(attributes)
 
     assert suite.name == "brittle_ex_unit"
   end
