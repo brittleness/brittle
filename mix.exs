@@ -9,6 +9,7 @@ defmodule Brittle.Web.MixProject do
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
+      aliases: aliases(),
       deps: deps()
     ]
   end
@@ -37,6 +38,12 @@ defmodule Brittle.Web.MixProject do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:jason, "~> 1.0"},
       {:cowboy, "~> 1.0"}
+    ]
+  end
+
+  defp aliases do
+    [
+      "test": ["ecto.drop --quiet", "ecto.create --quiet", "ecto.migrate --quiet", "test"]
     ]
   end
 end
