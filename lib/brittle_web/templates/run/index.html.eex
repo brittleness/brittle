@@ -7,6 +7,7 @@
       <th>Hostname</th>
       <th>Branch</th>
       <th>Revision</th>
+      <th>Duration</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +16,8 @@
       <td><%= run.id %></td>
       <td><%= run.hostname %></td>
       <td><%= run.branch %></td>
-      <td><%= run.revision %></td>
+      <td><abbr title="<%= run.revision %>"><%= short_revision(run) %></abbr></td>
+      <td><time datetime="<%= duration_time_component(run) %>"><%= human_duration(run) %></time></td>
     </tr>
     <% end %>
   </tbody>
