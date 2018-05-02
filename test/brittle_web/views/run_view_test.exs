@@ -32,4 +32,12 @@ defmodule Brittle.Web.RunViewTest do
     assert %Run{inserted_at: ~N[2018-05-01 21:33:32.163433]}
            |> RunView.inserted_at_iso8601() == "2018-05-01T21:33:32.163433Z"
   end
+
+  test "status_icon/1 returns a check mark" do
+    assert %Run{failure_count: 0} |> RunView.status_icon() == "✓"
+  end
+
+  test "status_icon/1 returns a cross" do
+    assert %Run{failure_count: 1} |> RunView.status_icon() == "✗"
+  end
 end

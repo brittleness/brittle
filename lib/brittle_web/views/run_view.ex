@@ -27,4 +27,7 @@ defmodule Brittle.Web.RunView do
     |> DateTime.from_naive!("Etc/UTC")
     |> DateTime.to_iso8601
   end
+
+  def status_icon(%Run{failure_count: 0}), do: "✓"
+  def status_icon(%Run{failure_count: _}), do: "✗"
 end
