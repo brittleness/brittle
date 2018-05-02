@@ -8,6 +8,7 @@ defmodule Brittle.Web.RunControllerTest do
     conn = get conn, "/suites/#{run.suite_id}/runs"
     response = html_response(conn, 200)
 
+    assert response =~ "<td>✓</td>"
     assert response =~ "Runs for phoenix"
     assert response =~ "Alices-MBP.fritz.box"
     assert response =~ "master"

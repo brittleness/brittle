@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Run</th>
       <th>Hostname</th>
       <th>Branch</th>
@@ -17,6 +18,7 @@
   <tbody>
     <%= for run <- @suite.runs do %>
     <tr>
+      <td><%= status_icon(run) %></td>
       <td><%= run.id %></td>
       <td><%= run.hostname %></td>
       <td><%= run.branch %></td>
