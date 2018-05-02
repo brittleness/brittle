@@ -15,7 +15,7 @@ defmodule Brittle.Fixtures do
       digest: "5e40eb035846ae6e762cbd22e65c34f3",
       dirty: true,
       duration: 20713727,
-      excluded_count: 0,
+      excluded_count: 4,
       failure_count: 0,
       hostname: "Alices-MBP.fritz.box",
       revision: "df54993999a5b340c8d3949e526ae91dba09a351",
