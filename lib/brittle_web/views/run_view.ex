@@ -17,4 +17,8 @@ defmodule Brittle.Web.RunView do
   def human_duration(%Run{duration: duration}) do
     "#{duration} μs"
   end
+
+  def duration_time_component(%Run{duration: duration}) do
+    "#{Float.round(duration / 1_000_000, 3)} s"
+  end
 end

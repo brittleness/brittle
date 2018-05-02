@@ -21,4 +21,10 @@ defmodule Brittle.Web.RunViewTest do
     assert %Run{duration: 727}
            |> RunView.human_duration() == "727 μs"
   end
+
+  test "duration_time_component/1 returns a valid duration time component" do
+    # As described in https://www.w3.org/TR/2014/REC-html5-20141028/infrastructure.html#duration-time-component
+    assert %Run{duration: 20_713_727}
+           |> RunView.duration_time_component() == "20.714 s"
+  end
 end
