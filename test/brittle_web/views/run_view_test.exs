@@ -27,4 +27,9 @@ defmodule Brittle.Web.RunViewTest do
     assert %Run{duration: 20_713_727}
            |> RunView.duration_time_component() == "20.714 s"
   end
+
+  test "inserted_at_iso8601/1 returns the inserted at NaiveDateTime as an iso8601 DateTime" do
+    assert %Run{inserted_at: ~N[2018-05-01 21:33:32.163433]}
+           |> RunView.inserted_at_iso8601() == "2018-05-01T21:33:32.163433Z"
+  end
 end

@@ -21,4 +21,10 @@ defmodule Brittle.Web.RunView do
   def duration_time_component(%Run{duration: duration}) do
     "#{Float.round(duration / 1_000_000, 3)} s"
   end
+
+  def inserted_at_iso8601(%Run{inserted_at: inserted_at}) do
+    inserted_at
+    |> DateTime.from_naive!("Etc/UTC")
+    |> DateTime.to_iso8601
+  end
 end
