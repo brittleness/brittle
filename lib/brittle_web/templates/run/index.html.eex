@@ -7,8 +7,11 @@
       <th>Hostname</th>
       <th>Branch</th>
       <th>Revision</th>
-      <th>Duration</th>
       <th>Run at</th>
+      <th>Tests</th>
+      <th>Excludes</th>
+      <th>Failures</th>
+      <th>Duration</th>
     </tr>
   </thead>
   <tbody>
@@ -18,8 +21,11 @@
       <td><%= run.hostname %></td>
       <td><%= run.branch %></td>
       <td><abbr title="<%= run.revision %>"><%= short_revision(run) %></abbr></td>
-      <td><time datetime="<%= duration_time_component(run) %>"><%= human_duration(run) %></time></td>
       <td><time datetime="<%= inserted_at_iso8601(run) %>"><%= NaiveDateTime.truncate(run.inserted_at, :second) %> <small>(UTC)</small></time></td>
+      <td><%= run.test_count %></td>
+      <td><%= run.excluded_count %></td>
+      <td><%= run.failure_count %></td>
+      <td><time datetime="<%= duration_time_component(run) %>"><%= human_duration(run) %></time></td>
     </tr>
     <% end %>
   </tbody>
