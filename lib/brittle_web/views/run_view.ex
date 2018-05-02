@@ -6,7 +6,15 @@ defmodule Brittle.Web.RunView do
     String.slice(revision, 0..6)
   end
 
-  def human_duration(%Run{duration: duration}) do
+  def human_duration(%Run{duration: duration}) when duration >= 1_000_000 do
     "#{Float.round(duration / 1_000_000, 2)} s"
+  end
+
+  def human_duration(%Run{duration: duration}) when duration >= 1_000 do
+    "#{Float.round(duration / 1_000, 2)} ms"
+  end
+
+  def human_duration(%Run{duration: duration}) do
+    "#{duration} μs"
   end
 end

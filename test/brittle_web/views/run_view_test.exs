@@ -11,4 +11,14 @@ defmodule Brittle.Web.RunViewTest do
     assert %Run{duration: 20_713_727}
            |> RunView.human_duration() == "20.71 s"
   end
+
+  test "human_duration/1 returns the duration in milliseconds" do
+    assert %Run{duration: 713_727}
+           |> RunView.human_duration() == "713.73 ms"
+  end
+
+  test "human_duration/1 returns the duration in microseconds" do
+    assert %Run{duration: 727}
+           |> RunView.human_duration() == "727 μs"
+  end
 end
