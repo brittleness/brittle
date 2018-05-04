@@ -39,7 +39,7 @@ defmodule Brittle.ResultsTest do
   end
 
   test "create_run/1 creates a suite", %{attributes: attributes} do
-    {:ok, %Run{suite: %Suite{} = suite} = run} = Results.create_run(attributes)
+    {:ok, %Run{suite: %Suite{} = suite}} = Results.create_run(attributes)
 
     assert suite.name == "brittle_ex_unit"
   end
