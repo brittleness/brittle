@@ -9,3 +9,5 @@ config :brittle_results,
   system: SystemMock
 
 config :brittle_results, ecto_repos: [Brittle.Repo]
+
+config :logger, level: :warn
