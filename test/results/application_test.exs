@@ -9,7 +9,7 @@ defmodule Brittle.Results.ApplicationTest do
 
     assert Application.fetch_env!(:brittle_results, Brittle.Repo) == [
              adapter: Sqlite.Ecto2,
-             database: "/Users/alice/brittle.sqlite3"
+             database: "/Users/alice/brittle/brittle.sqlite3"
            ]
 
     Application.put_env(:brittle_results, Brittle.Repo, config)
