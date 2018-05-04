@@ -16,7 +16,10 @@ defmodule Brittle.Results.ApplicationTest do
   end
 
   test "start/2 does not overwrite existing configuration" do
-    [brittle_results: [{Brittle.Repo, config} | _]] = Mix.Config.read!("config/config.exs")
+    [{Brittle.Repo, config} | _] =
+      "config/config.exs"
+      |> Mix.Config.read!()
+      |> Keyword.fetch!(:brittle_results)
 
     assert Application.fetch_env!(:brittle_results, Brittle.Repo) == config
   end
