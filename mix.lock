@@ -1,5 +1,5 @@
 %{
-  "brittle_results": {:git, "https://github.com/brittleness/brittle_results.git", "d523743e7e3c6a1cc7667f43623b2d94bbf3771e", []},
+  "brittle_results": {:git, "https://github.com/brittleness/brittle_results.git", "dfc2ffc37769377a9621319c9ba4c0655cda2714", []},
   "connection": {:hex, :connection, "1.0.4", "a1cae72211f0eef17705aaededacac3eb30e6625b04a6117c1b2db6ace7d5976", [:mix], [], "hexpm"},
   "cowboy": {:hex, :cowboy, "1.1.2", "61ac29ea970389a88eca5a65601460162d370a70018afe6f949a29dca91f3bb0", [:rebar3], [{:cowlib, "~> 1.0.2", [hex: :cowlib, repo: "hexpm", optional: false]}, {:ranch, "~> 1.3.2", [hex: :ranch, repo: "hexpm", optional: false]}], "hexpm"},
   "cowlib": {:hex, :cowlib, "1.0.2", "9d769a1d062c9c3ac753096f868ca121e2730b9a377de23dec0f7e08b1df84ee", [:make], [], "hexpm"},
