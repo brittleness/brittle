@@ -1,11 +1,10 @@
-defmodule Mix.Tasks.Brittle.ImportTest do
+defmodule Brittle.ImporterTest do
   use ExUnit.Case, async: true
-  alias Brittle.{Repo, Run}
-  alias Mix.Tasks.Brittle.Import
+  alias Brittle.{Importer, Repo, Run}
   import Brittle.Fixtures
 
   test "imports a run" do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Brittle.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
 
     payload =
       :run
@@ -23,7 +22,7 @@ defmodule Mix.Tasks.Brittle.ImportTest do
     |> Path.join(basename <> ".json")
     |> File.write!(payload)
 
-    Import.run([])
+    Importer.import!()
     assert [%Run{revision: "df54993999a5b340c8d3949e526ae91dba09a351"}] = Repo.all(Run)
   end
 
