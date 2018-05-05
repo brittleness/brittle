@@ -3,6 +3,8 @@ defmodule Brittle.Web.SuiteControllerTest do
   import Brittle.Fixtures
 
   setup do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Brittle.Repo)
+
     fixture!(:suite)
     :ok
   end
