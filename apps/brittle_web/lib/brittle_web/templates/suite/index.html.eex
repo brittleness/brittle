@@ -1,0 +1,16 @@
+<h1>Suites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for suite <- @suites do %>
+    <tr>
+      <td><%= link(suite.name, to: Routes.suite_run_path(@conn, :index, suite)) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
