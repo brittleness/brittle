@@ -26,7 +26,7 @@ defmodule Brittle.Web.RunControllerTest do
     assert body =~ ~s(<td><time datetime="20.714 s">20.71 s</time></td>)
 
     assert body =~
-             ~s(<td><time datetime="2018-05-01T21:33:32.163448Z">2018-05-01 21:33:32Z</time></td>)
+             ~s(<td><time datetime="2018-05-01T21:33:32.163448Z">2018-05-01 21:33:32.163448Z</time></td>)
   end
 
   test "orders the runs by their finished_at dates, newest first", %{body: body} do
