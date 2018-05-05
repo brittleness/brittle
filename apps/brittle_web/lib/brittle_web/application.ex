@@ -10,6 +10,7 @@ defmodule Brittle.Web.Application do
     children = [
       # Start the endpoint when the application starts
       Brittle.Web.Endpoint,
+      Brittle.Importer.Poll
       # Starts a worker by calling: Brittle.Web.Worker.start_link(arg)
       # {Brittle.Web.Worker, arg},
     ]
