@@ -15,7 +15,9 @@ defmodule Brittle.ResultsTest do
         failure_count: 1,
         excluded_count: 1,
         duration: 42,
-        suite: %{name: "brittle_ex_unit"}
+        suite: %{name: "brittle_ex_unit"},
+        started_at: DateTime.from_naive!(~N[2018-05-04 20:44:19.652251], "Etc/UTC"),
+        finished_at: DateTime.from_naive!(~N[2018-05-04 20:44:19.721502], "Etc/UTC")
       }
     ]
   end
@@ -31,6 +33,8 @@ defmodule Brittle.ResultsTest do
     assert run.failure_count == 1
     assert run.excluded_count == 1
     assert run.duration == 42
+    assert run.started_at == DateTime.from_naive!(~N[2018-05-04 20:44:19.652251], "Etc/UTC")
+    assert run.finished_at == DateTime.from_naive!(~N[2018-05-04 20:44:19.721502], "Etc/UTC")
   end
 
   test "create_run/1 does not create the same run twice", %{attributes: attributes} do

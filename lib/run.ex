@@ -16,6 +16,8 @@ defmodule Brittle.Run do
     field(:failure_count, :integer)
     field(:excluded_count, :integer)
     field(:duration, :integer)
+    field(:started_at, :utc_datetime)
+    field(:finished_at, :utc_datetime)
 
     timestamps()
   end
@@ -24,7 +26,8 @@ defmodule Brittle.Run do
     run
     |> cast(
       attributes,
-      ~w(digest hostname branch revision dirty test_count failure_count excluded_count duration)
+      ~w(digest hostname branch revision dirty test_count failure_count
+         excluded_count duration started_at finished_at)
     )
     |> put_assoc(:suite, suite(attributes.suite))
   end

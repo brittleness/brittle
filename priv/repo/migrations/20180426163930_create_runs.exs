@@ -15,6 +15,8 @@ defmodule Brittle.Repo.Migrations.CreateRuns do
       add(:failure_count, :integer)
       add(:excluded_count, :integer)
       add(:duration, :integer)
+      add(:started_at, :utc_datetime)
+      add(:finished_at, :utc_datetime)
 
       timestamps()
     end
