@@ -17,6 +17,6 @@ defmodule Brittle.Web.RunControllerTest do
     assert response =~ ~s(<td>4</td>)
     assert response =~ ~s(<td>0</td>)
     assert response =~ ~s(<td><time datetime="20.714 s">20.71 s</time></td>)
-    assert response =~ ~s(<td><time datetime="2018-05-01T21:33:32.163433Z">2018-05-01 21:33:32 <small>(UTC\)</small></time></td>)
+    assert response =~ ~s(<td><time datetime="2018-05-01T21:33:32.163448Z">2018-05-01 21:33:32Z</time></td>)
   end
 end

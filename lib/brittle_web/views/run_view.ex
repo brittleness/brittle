@@ -22,12 +22,6 @@ defmodule Brittle.Web.RunView do
     "#{Float.round(duration / 1_000_000, 3)} s"
   end
 
-  def inserted_at_iso8601(%Run{inserted_at: inserted_at}) do
-    inserted_at
-    |> DateTime.from_naive!("Etc/UTC")
-    |> DateTime.to_iso8601
-  end
-
   def status_icon(%Run{failure_count: 0}), do: "✓"
   def status_icon(%Run{failure_count: _}), do: "✗"
 
