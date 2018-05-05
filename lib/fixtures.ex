@@ -21,6 +21,8 @@ defmodule Brittle.Fixtures do
     revision: "df54993999a5b340c8d3949e526ae91dba09a351",
     test_count: 617,
     suite: attributes(:suite),
+    started_at: ~N[2018-05-01 21:33:11.449706],
+    finished_at: ~N[2018-05-01 21:33:32.163448],
     inserted_at: ~N[2018-05-01 21:33:32.163433],
     updated_at: ~N[2018-05-01 21:33:32.163448]
   }
