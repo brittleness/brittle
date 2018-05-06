@@ -8,11 +8,7 @@ defmodule Brittle.Web.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      # Start the endpoint when the application starts
-      Brittle.Web.Endpoint,
-      Brittle.Importer.Poll
-      # Starts a worker by calling: Brittle.Web.Worker.start_link(arg)
-      # {Brittle.Web.Worker, arg},
+      Brittle.Web.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
