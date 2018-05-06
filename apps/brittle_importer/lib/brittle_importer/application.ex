@@ -8,7 +8,7 @@ defmodule Brittle.Importer.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      Brittle.Importer.Poll
+      Brittle.Importer.Watch
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
