@@ -9,4 +9,4 @@ config :brittle_importer,
   ecto_repos: [Brittle.Repo]
 
 config :brittle_importer,
-  payload_directory: "#{System.tmp_dir!()}#{Enum.random(100..999)}"
+  payload_directory: "_build/test/payloads/#{Enum.random(100..999)}"
