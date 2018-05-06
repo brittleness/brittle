@@ -32,4 +32,9 @@ defmodule Brittle.Web.RunControllerTest do
   test "orders the runs by their finished_at dates, newest first", %{body: body} do
     assert Regex.scan(~r[✓|✗], body) == [~w(✗), ~w(✓)]
   end
+
+  test "marks runs in dirty states as dirty", %{body: body} do
+    assert body =~
+             ~s(<td><abbr title="df54993999a5b340c8d3949e526ae91dba09a351">df54993</abbr> <small>(dirty\)</small></td>)
+  end
 end

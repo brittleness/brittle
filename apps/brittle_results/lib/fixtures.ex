@@ -13,7 +13,7 @@ defmodule Brittle.Fixtures do
   %{
     branch: "master",
     digest: "5e40eb035846ae6e762cbd22e65c34f3",
-    dirty: true,
+    dirty: false,
     duration: 20713727,
     excluded_count: 4,
     failure_count: 0,
@@ -34,6 +34,7 @@ defmodule Brittle.Fixtures do
     |> Map.merge(
       %{
         duration: 27013727,
+        dirty: true,
         failure_count: 3,
         started_at: ~N[2018-05-05 09:00:38.910606],
         finished_at: ~N[2018-05-05 09:01:05.924333],
