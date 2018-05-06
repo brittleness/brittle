@@ -1,8 +1,16 @@
 defmodule Brittle.Web.SuiteController do
   use Brittle.Web, :controller
   alias Brittle.{Repo, Suite}
+  require Ecto.Query
 
   def index(conn, _params) do
-    render conn, "index.html", suites: Repo.all(Suite)
+    suites =
+      Suite
+      |> Ecto.Query.join(:left, [s], assoc(s, :runs))
+      |> Ecto.Query.group_by([s], s.id)
+      |> Ecto.Query.order_by([s, r], desc: r.finished_at)
+      |> Repo.all()
+
+    render(conn, "index.html", suites: suites)
   end
 end
