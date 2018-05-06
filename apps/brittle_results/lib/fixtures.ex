@@ -44,6 +44,20 @@ defmodule Brittle.Fixtures do
     )
   end
 
+  def attributes(:run_brittle_ex_unit) do
+    :run
+    |> attributes()
+    |> Map.merge(
+      %{
+        suite: %{name: "brittle_ex_unit"},
+        started_at: ~N[2018-05-05 09:00:38.910606],
+        finished_at: ~N[2018-05-05 09:01:05.924333],
+        inserted_at: ~N[2018-05-05 09:01:05.924333],
+        updated_at: ~N[2018-05-05 09:01:05.924333],
+      }
+    )
+  end
+
   def fixture(:suite) do
     Suite.changeset(%Suite{}, attributes(:suite))
   end
@@ -54,6 +68,10 @@ defmodule Brittle.Fixtures do
 
   def fixture(:failed_run) do
     Run.changeset(%Run{}, attributes(:failed_run))
+  end
+
+  def fixture(:run_brittle_ex_unit) do
+    Run.changeset(%Run{}, attributes(:run_brittle_ex_unit))
   end
 
   def fixture!(name) do
