@@ -6,14 +6,15 @@ defmodule Brittle.Importer.Application do
   use Application
 
   def start(_type, _args) do
-    # List all child processes to be supervised
-    children = [
-      Brittle.Importer.Watch
-    ]
-
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Brittle.Importer.Supervisor]
-    Supervisor.start_link(children, opts)
+    Supervisor.start_link(children(), opts)
+  end
+
+  def children do
+    if Code.ensure_loaded?(Brittle.Importer.Watch) do
+      [Brittle.Importer.Watch]
+    else
+      [Brittle.Importer.Poll]
+    end
   end
 end

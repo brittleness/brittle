@@ -23,8 +23,7 @@ defmodule Brittle.Importer.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:brittle_results, in_umbrella: true},
-      {:file_system, "~> 0.2"}
+      {:brittle_results, in_umbrella: true}
     ]
   end
 

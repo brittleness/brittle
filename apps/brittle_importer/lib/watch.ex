@@ -1,21 +1,23 @@
-defmodule Brittle.Importer.Watch do
-  use GenServer
-  alias Brittle.Importer
+if Code.ensure_loaded?(FileSystem) do
+  defmodule Brittle.Importer.Watch do
+    use GenServer
+    alias Brittle.Importer
 
-  def start_link(_) do
-    GenServer.start_link(__MODULE__, %{})
-  end
+    def start_link(_) do
+      GenServer.start_link(__MODULE__, %{})
+    end
 
-  def init(state) do
-    {:ok, pid} = FileSystem.start_link(dirs: [Importer.payload_directory()])
-    FileSystem.subscribe(pid)
+    def init(state) do
+      {:ok, pid} = FileSystem.start_link(dirs: [Importer.payload_directory()])
+      FileSystem.subscribe(pid)
 
-    {:ok, state}
-  end
+      {:ok, state}
+    end
 
-  def handle_info({:file_event, _, _}, state) do
-    Brittle.Importer.import!()
+    def handle_info({:file_event, _, _}, state) do
+      Brittle.Importer.import!()
 
-    {:noreply, state}
+      {:noreply, state}
+    end
   end
 end
