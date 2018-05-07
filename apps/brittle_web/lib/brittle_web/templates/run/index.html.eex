@@ -1,4 +1,5 @@
-<h1>Runs for <%= @suite.name %></h1>
+<h1><%= @suite.name %></h1>
+<h2>Runs</h2>
 
 <table>
   <thead>
@@ -32,3 +33,4 @@
     <% end %>
   </tbody>
 </table>
+</main>

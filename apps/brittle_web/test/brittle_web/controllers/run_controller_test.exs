@@ -11,9 +11,14 @@ defmodule Brittle.Web.RunControllerTest do
     [body: html_response(conn, 200)]
   end
 
+  test "shows the suite header", %{body: body} do
+    assert body =~ ~s(<a href="/">Suites</a>)
+    assert body =~ "<h1>phoenix</h1>"
+  end
+
   test "shows all runs for a suite", %{body: body} do
     assert body =~ "<td>✓</td>"
-    assert body =~ "Runs for phoenix"
+    assert body =~ "<h2>Runs</h2>"
     assert body =~ "Alices-MBP.fritz.box"
     assert body =~ "master"
 

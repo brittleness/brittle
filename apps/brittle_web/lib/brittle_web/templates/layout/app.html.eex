@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="/style.css"/>
   </head>
   <body>
-    <%= render @view_module, @view_template, assigns %>
+    <header>
+      <nav>
+        <%= link("Suites", to: Routes.suite_path(@conn, :index)) %>
+      </nav>
+    </header>
+
+    <main>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
   </body>
 </html>
