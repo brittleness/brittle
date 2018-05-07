@@ -1,0 +1,34 @@
+body{
+  font: 18px/1.4 system-ui, sans-serif;
+  padding: 1em;
+}
+h1, h2, h3, h4, h5, h6{
+  line-height: normal;
+}
+img, video{
+  max-width: 100%;
+  height: auto;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+table{
+  border-collapse: collapse;
+  font: inherit;
+  width: 100%;
+}
+td, th{
+  padding: 0.5em;
+}
+td:first-child, th:first-child{
+  padding-left: 0;
+}
+td:last-child, th:last-child{
+  padding-right: 0;
+}
+th{
+  text-align: left;
+}
