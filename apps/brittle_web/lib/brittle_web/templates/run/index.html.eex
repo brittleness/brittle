@@ -17,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    <%= for run <- @suite.runs do %>
+    <%= for run <- @runs do %>
     <tr class="<%= status(run) %>">
       <td class="status_icon"><%= status_icon(run) %></td>
       <td><%= run.id %></td>

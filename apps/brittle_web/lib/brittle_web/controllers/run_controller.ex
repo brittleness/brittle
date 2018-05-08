@@ -10,6 +10,6 @@ defmodule Brittle.Web.RunController do
     |> Ecto.Query.preload(runs: ^run_query)
     |> Repo.get(suite_id)
 
-    render conn, "index.html", suite: suite
+    render conn, "index.html", suite: suite, runs: suite.runs
   end
 end
