@@ -25,5 +25,8 @@ defmodule Brittle.Web.RunView do
   def status_icon(%Run{failure_count: 0}), do: "✓"
   def status_icon(%Run{failure_count: _}), do: "✗"
 
+  def status(%Run{failure_count: 0}), do: :passed
+  def status(%Run{failure_count: _}), do: :failed
+
   def duration_rate(_, _), do: 1
 end
