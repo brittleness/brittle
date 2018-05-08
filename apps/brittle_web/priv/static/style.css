@@ -33,9 +33,22 @@ th{
   text-align: left;
 }
 
-tr.passed .status_icon{
+tbody.passed .status_icon{
   color: green;
 }
-tr.failed .status_icon{
+tbody.failed .status_icon{
   color: red;
+}
+
+.bar{
+  display: block;
+  height: 0.5em;
+  border-radius: 0.25em;
+}
+
+tbody.passed .bar{
+  background-color: green;
+}
+tbody.failed .bar{
+  background-color: red;
 }

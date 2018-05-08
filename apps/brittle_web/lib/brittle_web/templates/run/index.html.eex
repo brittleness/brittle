@@ -16,9 +16,9 @@
       <th>Duration</th>
     </tr>
   </thead>
-  <tbody>
-    <%= for run <- @runs do %>
-    <tr class="<%= status(run) %>">
+  <%= for run <- @runs do %>
+  <tbody class="<%= status(run) %>">
+    <tr>
       <td class="status_icon"><%= status_icon(run) %></td>
       <td><%= run.id %></td>
       <td><%= run.hostname %></td>
@@ -30,7 +30,12 @@
       <td><%= run.failure_count %></td>
       <td><time datetime="<%= duration_time_component(run) %>"><%= human_duration(run) %></time></td>
     </tr>
-    <% end %>
+    <tr>
+      <td colspan="10">
+        <span class="bar" style="width: <%= duration_rate(run, @slowest) * 100 %>%"></span>
+      </td>
+    </tr>
   </tbody>
+  <% end %>
 </table>
 </main>

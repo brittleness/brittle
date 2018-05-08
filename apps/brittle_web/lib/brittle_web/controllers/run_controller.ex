@@ -6,10 +6,12 @@ defmodule Brittle.Web.RunController do
   def index(conn, %{"suite_id" => suite_id}) do
     run_query = Ecto.Query.order_by(Run, desc: :inserted_at)
 
-    suite = Suite
+    suite = %Suite{runs: runs} = Suite
     |> Ecto.Query.preload(runs: ^run_query)
     |> Repo.get(suite_id)
 
-    render conn, "index.html", suite: suite, runs: suite.runs
+    slowest = Enum.max_by(runs, fn(run) -> run.duration end)
+
+    render conn, "index.html", suite: suite, runs: runs, slowest: slowest
   end
 end
