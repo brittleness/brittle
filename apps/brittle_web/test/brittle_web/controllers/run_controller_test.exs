@@ -17,7 +17,7 @@ defmodule Brittle.Web.RunControllerTest do
   end
 
   test "shows all runs for a suite", %{body: body} do
-    assert body =~ "<td>✓</td>"
+    assert body =~ ~s(<td class="status_icon">✓</td>)
     assert body =~ "<h2>Runs</h2>"
     assert body =~ "Alices-MBP.fritz.box"
     assert body =~ "master"

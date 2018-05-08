@@ -18,8 +18,8 @@
   </thead>
   <tbody>
     <%= for run <- @suite.runs do %>
-    <tr>
-      <td><%= status_icon(run) %></td>
+    <tr class="<%= status(run) %>">
+      <td class="status_icon"><%= status_icon(run) %></td>
       <td><%= run.id %></td>
       <td><%= run.hostname %></td>
       <td><%= run.branch %></td>
