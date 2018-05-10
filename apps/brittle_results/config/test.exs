@@ -6,5 +6,4 @@ config :brittle_results, Brittle.Repo,
   pool: Ecto.Adapters.SQL.Sandbox
 
 config :brittle_results,
-  ecto_repos: [Brittle.Repo],
   system: SystemMock
