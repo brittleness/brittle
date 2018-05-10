@@ -14,7 +14,9 @@ defmodule Brittle.Web.Router do
 
     get "/", SuiteController, :index
     resources "/suites", SuiteController, only: [:index] do
-      resources "/runs", RunController, only: [:index]
+      resources "/runs", RunController, only: [:index] do
+        resources "/results", ResultController, only: [:index]
+      end
     end
   end
 end
