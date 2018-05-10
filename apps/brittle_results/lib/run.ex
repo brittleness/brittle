@@ -1,11 +1,12 @@
 defmodule Brittle.Run do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Brittle.Suite
+  alias Brittle.{Suite, Result}
   require Ecto.Query
 
   schema "runs" do
     belongs_to(:suite, Suite)
+    has_many(:results, Result)
 
     field(:digest, :string)
     field(:hostname, :string)
@@ -30,6 +31,7 @@ defmodule Brittle.Run do
          excluded_count duration started_at finished_at)
     )
     |> put_assoc(:suite, suite(attributes.suite))
+    |> cast_assoc(:results)
   end
 
   def suite(attributes) do
