@@ -38,6 +38,7 @@ defmodule Brittle.Web do
       use Phoenix.HTML
 
       alias Brittle.Web.Router.Helpers, as: Routes
+      import Brittle.Results.Duration
     end
   end
 

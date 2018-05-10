@@ -28,7 +28,7 @@
       <td><%= run.test_count %></td>
       <td><%= run.excluded_count %></td>
       <td><%= run.failure_count %></td>
-      <td><time datetime="<%= duration_time_component(run) %>"><%= human_duration(run) %></time></td>
+      <td><time datetime="<%= to_time_component(run.duration) %>"><%= to_human(run.duration) %></time></td>
     </tr>
     <tr>
       <td colspan="10">
