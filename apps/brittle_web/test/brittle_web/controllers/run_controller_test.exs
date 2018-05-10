@@ -8,17 +8,18 @@ defmodule Brittle.Web.RunControllerTest do
     [run | _] = [fixture!(:run), fixture!(:failed_run)]
     conn = get(conn, "/suites/#{run.suite_id}/runs")
 
-    [body: html_response(conn, 200)]
+    [body: html_response(conn, 200), suite: run.suite, run: run]
   end
 
   test "shows the suite header", %{body: body} do
     assert body =~ ~s(<a href="/">Suites</a>)
     assert body =~ "<h1>phoenix</h1>"
+    assert body =~ "<h2>Runs</h2>"
   end
 
-  test "shows all runs for a suite", %{body: body} do
+  test "shows all runs for a suite", %{body: body, suite: %{id: suite_id}, run: %{id: run_id}} do
     assert body =~ ~s(<td class="status_icon">✓</td>)
-    assert body =~ "<h2>Runs</h2>"
+    assert body =~ ~s(<a href="/suites/#{suite_id}/runs/#{run_id}/results"># #{run_id}</a>)
     assert body =~ "Alices-MBP.fritz.box"
     assert body =~ "master"
 
