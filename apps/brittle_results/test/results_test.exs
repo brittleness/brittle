@@ -21,6 +21,7 @@ defmodule Brittle.ResultsTest do
         results: [
           %{
             status: "passed",
+            duration: 42,
             test: %{module: "Elixir.ExampleTest", name: "test passes"}
           }
         ]
@@ -64,6 +65,7 @@ defmodule Brittle.ResultsTest do
     {:ok, %Run{results: [%Result{} = result]}} = Results.create_run(attributes)
 
     assert result.status == "passed"
+    assert result.duration == 42
   end
 
   test "create_run/1 creates a test", %{attributes: attributes} do

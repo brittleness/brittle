@@ -7,6 +7,7 @@ defmodule Brittle.Repo.Migrations.CreateResults do
       add(:test_id, references(:tests))
 
       add(:status, :string)
+      add(:duration, :integer)
 
       timestamps()
     end
