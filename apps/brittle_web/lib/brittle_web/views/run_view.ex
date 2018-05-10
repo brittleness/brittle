@@ -27,8 +27,4 @@ defmodule Brittle.Web.RunView do
 
   def status(%Run{failure_count: 0}), do: :passed
   def status(%Run{failure_count: _}), do: :failed
-
-  def duration_rate(%Run{duration: duration}, %Run{duration: slowest}) do
-    duration / slowest
-  end
 end

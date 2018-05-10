@@ -43,14 +43,4 @@ defmodule Brittle.Web.RunViewTest do
   test "status/1 returns :failed with failures" do
     assert %Run{failure_count: 1} |> RunView.status() == :failed
   end
-
-  test "duration_rate/2 returns 1 for the slowest test" do
-    run = %Run{duration: 20_713_727}
-    assert run |> RunView.duration_rate(run) == 1
-  end
-
-  test "duration_rate/2 returns 0.5 for a test twice as fast as the slowest" do
-    run = %Run{duration: 20_713_728}
-    assert run |> RunView.duration_rate(%Run{duration: 41_427_456}) == 0.5
-  end
 end

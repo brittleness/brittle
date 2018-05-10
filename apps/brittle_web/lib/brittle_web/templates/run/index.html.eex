@@ -33,7 +33,7 @@
     <tr>
       <td colspan="10">
         <div class="bar">
-          <span style="width: <%= duration_rate(run, @slowest) * 100 %>%"></span>
+          <span style="width: <%= run.duration / @slowest.duration * 100 %>%"></span>
         </div>
       </td>
     </tr>
