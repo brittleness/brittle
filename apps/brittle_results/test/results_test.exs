@@ -19,7 +19,10 @@ defmodule Brittle.ResultsTest do
         started_at: DateTime.from_naive!(~N[2018-05-04 20:44:19.652251], "Etc/UTC"),
         finished_at: DateTime.from_naive!(~N[2018-05-04 20:44:19.721502], "Etc/UTC"),
         results: [
-          %{test: %{module: "Elixir.ExampleTest", name: "test passes"}}
+          %{
+            status: "passed",
+            test: %{module: "Elixir.ExampleTest", name: "test passes"}
+          }
         ]
       }
     ]
@@ -55,6 +58,12 @@ defmodule Brittle.ResultsTest do
     %Suite{id: id} = Repo.insert!(%Suite{name: "brittle_ex_unit"})
 
     assert {:ok, %Run{suite_id: ^id}} = Results.create_run(attributes)
+  end
+
+  test "create_run/1 creates a result", %{attributes: attributes} do
+    {:ok, %Run{results: [%Result{} = result]}} = Results.create_run(attributes)
+
+    assert result.status == "passed"
   end
 
   test "create_run/1 creates a test", %{attributes: attributes} do

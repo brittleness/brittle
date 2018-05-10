@@ -6,6 +6,8 @@ defmodule Brittle.Repo.Migrations.CreateResults do
       add(:run_id, references(:runs))
       add(:test_id, references(:tests))
 
+      add(:status, :string)
+
       timestamps()
     end
   end
