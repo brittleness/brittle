@@ -4,6 +4,7 @@ if Code.ensure_loaded?(FileSystem) do
     alias Brittle.Importer
 
     def start_link(_) do
+      Mix.Tasks.Ecto.Migrate.run(~w(-r Brittle.Repo --quiet))
       GenServer.start_link(__MODULE__, %{})
     end
 

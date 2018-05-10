@@ -2,6 +2,7 @@ defmodule Brittle.Importer.Poll do
   use GenServer
 
   def start_link(_) do
+    Mix.Tasks.Ecto.Migrate.run(~w(-r Brittle.Repo --quiet))
     GenServer.start_link(__MODULE__, %{})
   end
 
