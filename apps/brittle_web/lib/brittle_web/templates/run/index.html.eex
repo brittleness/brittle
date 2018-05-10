@@ -32,7 +32,9 @@
     </tr>
     <tr>
       <td colspan="10">
-        <span class="bar" style="width: <%= duration_rate(run, @slowest) * 100 %>%"></span>
+        <div class="bar">
+          <span style="width: <%= duration_rate(run, @slowest) * 100 %>%"></span>
+        </div>
       </td>
     </tr>
   </tbody>

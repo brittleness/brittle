@@ -41,14 +41,20 @@ tbody.failed .status_icon{
 }
 
 .bar{
-  display: block;
-  height: 0.5em;
+  background-color: whitesmoke;
   border-radius: 0.25em;
 }
 
-tbody.passed .bar{
+.bar span{
+  display: block;
+  height: 0.5em;
+  border-radius: 0.25em;
+  min-width: 0.5em;
+}
+
+tbody.passed .bar span{
   background-color: green;
 }
-tbody.failed .bar{
+tbody.failed .bar span{
   background-color: red;
 }

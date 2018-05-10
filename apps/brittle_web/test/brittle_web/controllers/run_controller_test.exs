@@ -45,6 +45,6 @@ defmodule Brittle.Web.RunControllerTest do
   end
 
   test "shows a duration bar for each run", %{body: body} do
-    assert body =~ ~s(<span class="bar" style="width: 76.67852347808208%"></span>)
+    assert body =~ ~s(<span style="width: 76.67852347808208%"></span>)
   end
 end
