@@ -3,9 +3,7 @@ defmodule Brittle.Fixtures do
 
   def attributes(:suite) do
     %{
-      name: "phoenix",
-      inserted_at: ~N[2018-05-01 21:32:21.097299],
-      updated_at: ~N[2018-05-01 21:32:21.097312]
+      name: "phoenix"
     }
   end
 
@@ -22,9 +20,7 @@ defmodule Brittle.Fixtures do
     test_count: 617,
     suite: attributes(:suite),
     started_at: ~N[2018-05-01 21:33:11.449706],
-    finished_at: ~N[2018-05-01 21:33:32.163448],
-    inserted_at: ~N[2018-05-01 21:33:32.163433],
-    updated_at: ~N[2018-05-01 21:33:32.163448]
+    finished_at: ~N[2018-05-01 21:33:32.163448]
   }
   end
 
@@ -37,9 +33,7 @@ defmodule Brittle.Fixtures do
         dirty: true,
         failure_count: 3,
         started_at: ~N[2018-05-05 09:00:38.910606],
-        finished_at: ~N[2018-05-05 09:01:05.924333],
-        inserted_at: ~N[2018-05-05 09:01:05.924333],
-        updated_at: ~N[2018-05-05 09:01:05.924333],
+        finished_at: ~N[2018-05-05 09:01:05.924333]
       }
     )
   end
@@ -51,9 +45,7 @@ defmodule Brittle.Fixtures do
       %{
         suite: %{name: "brittle_ex_unit"},
         started_at: ~N[2018-05-05 09:00:38.910606],
-        finished_at: ~N[2018-05-05 09:01:05.924333],
-        inserted_at: ~N[2018-05-05 09:01:05.924333],
-        updated_at: ~N[2018-05-05 09:01:05.924333],
+        finished_at: ~N[2018-05-05 09:01:05.924333]
       }
     )
   end
