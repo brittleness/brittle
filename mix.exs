@@ -15,6 +15,6 @@ defmodule Brittle.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    []
+    [{:brittle_ex_unit, github: "brittleness/brittle_ex_unit", only: :test}]
   end
 end
