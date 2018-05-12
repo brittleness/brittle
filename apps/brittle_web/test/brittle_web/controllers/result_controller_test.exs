@@ -21,7 +21,11 @@ defmodule Brittle.Web.ResultControllerTest do
     assert body =~ ~s(<td class="status_icon">✓</td>)
     assert body =~ ~s(<td>Elixir.ExampleTest</td>)
     assert body =~ ~s(<td>test passes</td>)
-    assert body =~ ~s(<time datetime="20.714 s">20.71 s</time>)
-    assert body =~ ~s(<small>(100.0 %\)</small>)
+    assert body =~ ~s(<time datetime="20.314 s">20.31 s</time>)
+    assert body =~ ~s(<small>(98.07 %\)</small>)
+  end
+
+  test "shows a duration bar for each result", %{body: body} do
+    assert body =~ ~s(<span style="width: 98.06891343117537%"></span>)
   end
 end

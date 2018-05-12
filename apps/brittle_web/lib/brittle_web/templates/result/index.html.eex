@@ -21,6 +21,13 @@
         <small>(<%= Float.round(result.duration / @run.duration * 100, 2) %> %)</small>
       </td>
     </tr>
+    <tr>
+      <td colspan="10">
+        <div class="bar">
+          <span style="width: <%= result.duration / @run.duration * 100 %>%"></span>
+        </div>
+      </td>
+    </tr>
   </tbody>
   <% end %>
 </table>

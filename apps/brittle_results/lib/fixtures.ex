@@ -52,7 +52,7 @@ defmodule Brittle.Fixtures do
 
   def attributes(:result) do
     %{
-      duration: 20713727,
+      duration: 20313727,
       status: "passed",
       test: attributes(:test)
     }
