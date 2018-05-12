@@ -13,7 +13,7 @@ defmodule Brittle.Results.Application do
           :brittle_results,
           Brittle.Repo,
           adapter: Sqlite.Ecto2,
-          database: "#{@system.user_home!()}/brittle/brittle.sqlite3"
+          database: "#{@system.user_home!()}/.brittle/brittle.sqlite3"
         )
 
       _ ->

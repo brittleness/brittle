@@ -15,7 +15,7 @@ defmodule Brittle.Importer do
     Application.get_env(
       :brittle_importer,
       :payload_directory,
-      Path.join(System.user_home!(), "brittle/payloads")
+      Path.join(System.user_home!(), ".brittle/payloads")
     )
   end
 end
