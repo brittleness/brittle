@@ -5,6 +5,7 @@ defmodule Brittle.MixProject do
     [
       apps_path: "apps",
       start_permanent: Mix.env() == :prod,
+      aliases: aliases(),
       deps: deps()
     ]
   end
@@ -16,5 +17,11 @@ defmodule Brittle.MixProject do
   # Run "mix help deps" for examples and options.
   defp deps do
     [{:brittle_ex_unit, github: "brittleness/brittle_ex_unit", only: :test}]
+  end
+
+  defp aliases do
+    [
+      "test": ["ecto.drop --quiet", "ecto.create --quiet", "ecto.migrate --quiet", "test"]
+    ]
   end
 end
