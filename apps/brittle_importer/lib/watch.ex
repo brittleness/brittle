@@ -12,6 +12,8 @@ if Code.ensure_loaded?(FileSystem) do
       {:ok, pid} = FileSystem.start_link(dirs: [Importer.payload_directory()])
       FileSystem.subscribe(pid)
 
+      Brittle.Importer.import!()
+
       {:ok, state}
     end
 
