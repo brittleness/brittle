@@ -10,7 +10,6 @@ defmodule Brittle.Fixtures do
   def attributes(:run) do
   %{
     branch: "master",
-    digest: "5e40eb035846ae6e762cbd22e65c34f3",
     dirty: false,
     duration: 20713727,
     excluded_count: 4,
