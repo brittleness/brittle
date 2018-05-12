@@ -22,3 +22,5 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 brittle_importer-*.tar
 
+# Don't check in mix.lock
+mix.lock
