@@ -1,4 +1,4 @@
-<h1><%= @suite.name %></h1>
+<h1><%= link(@suite.name, to: Routes.suite_run_path(@conn, :index, @suite)) %></h1>
 <h2>Run #<%= @run.id %></h2>
 
 <table>

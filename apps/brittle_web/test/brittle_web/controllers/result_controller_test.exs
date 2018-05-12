@@ -11,10 +11,10 @@ defmodule Brittle.Web.ResultControllerTest do
     [body: html_response(conn, 200), run: run]
   end
 
-  test "shows the suite header", %{body: body, run: %{id: id}} do
+  test "shows the suite header", %{body: body, run: %{id: run_id, suite_id: suite_id}} do
     assert body =~ ~s(<a href="/">Suites</a>)
-    assert body =~ "<h1>phoenix</h1>"
-    assert body =~ "<h2>Run ##{id}</h2>"
+    assert body =~ ~s(<h1><a href="/suites/#{suite_id}/runs">phoenix</a></h1>)
+    assert body =~ "<h2>Run ##{run_id}</h2>"
   end
 
   test "shows all results for a run", %{body: body} do
