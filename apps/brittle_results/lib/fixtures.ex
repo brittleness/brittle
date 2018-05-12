@@ -19,7 +19,8 @@ defmodule Brittle.Fixtures do
     test_count: 617,
     suite: attributes(:suite),
     started_at: ~N[2018-05-01 21:33:11.449706],
-    finished_at: ~N[2018-05-01 21:33:32.163448]
+    finished_at: ~N[2018-05-01 21:33:32.163448],
+    results: [attributes(:result)]
   }
   end
 
@@ -47,6 +48,21 @@ defmodule Brittle.Fixtures do
         finished_at: ~N[2018-05-05 09:01:05.924333]
       }
     )
+  end
+
+  def attributes(:result) do
+    %{
+      duration: 20713727,
+      status: "passed",
+      test: attributes(:test)
+    }
+  end
+
+  def attributes(:test) do
+    %{
+      module: "Elixir.ExampleTest",
+      name: "test passes"
+    }
   end
 
   def fixture(:suite) do
