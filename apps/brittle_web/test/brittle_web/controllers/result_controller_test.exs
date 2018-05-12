@@ -16,4 +16,12 @@ defmodule Brittle.Web.ResultControllerTest do
     assert body =~ "<h1>phoenix</h1>"
     assert body =~ "<h2>Run ##{id}</h2>"
   end
+
+  test "shows all results for a run", %{body: body} do
+    assert body =~ ~s(<td class="status_icon">✓</td>)
+    assert body =~ ~s(<td>Elixir.ExampleTest</td>)
+    assert body =~ ~s(<td>test passes</td>)
+    assert body =~ ~s(<time datetime="20.714 s">20.71 s</time>)
+    assert body =~ ~s(<small>(100.0 %\)</small>)
+  end
 end

@@ -1,2 +1,26 @@
 <h1><%= @suite.name %></h1>
 <h2>Run #<%= @run.id %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Module</th>
+      <th>Test</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <%= for result <- @run.results do %>
+  <tbody class="<%= result.status %>">
+    <tr>
+      <td class="status_icon"><%= status_icon(result.status) %></td>
+      <td><%= result.test.module %></td>
+      <td><%= result.test.name %></td>
+      <td>
+        <time datetime="<%= to_time_component(result.duration) %>"><%= to_human(result.duration) %></time>
+        <small>(<%= Float.round(result.duration / @run.duration * 100, 2) %> %)</small>
+      </td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
