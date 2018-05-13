@@ -1,13 +1,10 @@
+/* main (based on https://github.com/jeffkreeftmeijer/enough.css) */
 body{
   font: 16px/1.4 system-ui, sans-serif;
   padding: 1em;
 }
 h1, h2, h3, h4, h5, h6{
   line-height: normal;
-}
-img, video{
-  max-width: 100%;
-  height: auto;
 }
 a {
   text-decoration: none;
@@ -33,6 +30,7 @@ th{
   text-align: left;
 }
 
+/* data */
 .status_icon{
   width: 1ch;
 }
@@ -43,18 +41,17 @@ tbody.failed .status_icon{
   color: red;
 }
 
+/* bar */
 .bar{
   background-color: whitesmoke;
   border-radius: 0.25em;
 }
-
 .bar span{
   display: block;
   height: 0.5em;
   border-radius: 0.25em;
   min-width: 0.5em;
 }
-
 tbody.passed .bar span{
   background-color: green;
 }
