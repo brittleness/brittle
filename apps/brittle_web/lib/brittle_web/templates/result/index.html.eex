@@ -4,8 +4,7 @@
 <table>
   <thead>
     <tr>
-      <th colspan="2">Module</th>
-      <th>Test</th>
+      <th colspan="2">Test</th>
       <th>Duration</th>
     </tr>
   </thead>
@@ -13,8 +12,12 @@
   <tbody class="<%= result.status %>">
     <tr>
       <td class="status_icon"><%= status_icon(result.status) %></td>
-      <td><%= result.test.module %></td>
-      <td><%= result.test.name %></td>
+      <td>
+        <span class="module">
+          <%= result.test.module %>
+        </span>
+        <%= result.test.name %>
+      </td>
       <td>
         <time datetime="<%= to_time_component(result.duration) %>"><%= to_human(result.duration) %></time>
         <small>(<%= Float.round(result.duration / @run.duration * 100, 2) %> %)</small>

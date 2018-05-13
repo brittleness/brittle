@@ -31,7 +31,8 @@ th{
 }
 
 /* data */
-small{
+small, .module{
+  font-size: 0.9em;
   display: block;
   color: gray;
 }
