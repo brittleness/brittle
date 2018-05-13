@@ -4,8 +4,7 @@
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th>Module</th>
+      <th colspan="2">Module</th>
       <th>Test</th>
       <th>Duration</th>
     </tr>

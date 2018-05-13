@@ -4,8 +4,7 @@
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th>Run</th>
+      <th colspan="2">Run</th>
       <th>Hostname</th>
       <th>Branch</th>
       <th>Revision</th>
