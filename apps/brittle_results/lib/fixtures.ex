@@ -20,7 +20,7 @@ defmodule Brittle.Fixtures do
     suite: attributes(:suite),
     started_at: ~N[2018-05-01 21:33:11.449706],
     finished_at: ~N[2018-05-01 21:33:32.163448],
-    results: [attributes(:result)]
+    results: [attributes(:result), attributes(:failed_result)]
   }
   end
 
@@ -54,6 +54,14 @@ defmodule Brittle.Fixtures do
     %{
       duration: 20313727,
       status: "passed",
+      test: attributes(:test)
+    }
+  end
+
+  def attributes(:failed_result) do
+    %{
+      duration: 6313727,
+      status: "failed",
       test: attributes(:test)
     }
   end

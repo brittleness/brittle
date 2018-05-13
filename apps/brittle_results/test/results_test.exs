@@ -42,14 +42,14 @@ defmodule Brittle.ResultsTest do
   end
 
   test "create_run/1 creates a result", %{attributes: attributes} do
-    {:ok, %Run{results: [%Result{} = result]}} = Results.create_run(attributes)
+    {:ok, %Run{results: [%Result{} = result | _]}} = Results.create_run(attributes)
 
     assert result.status == "passed"
     assert result.duration == 20313727
   end
 
   test "create_run/1 creates a test", %{attributes: attributes} do
-    {:ok, %Run{results: [%Result{test: %Test{} = test}]}} = Results.create_run(attributes)
+    {:ok, %Run{results: [%Result{test: %Test{} = test} | _]}} = Results.create_run(attributes)
 
     assert test.module == "Elixir.ExampleTest"
     assert test.name == "test passes"
