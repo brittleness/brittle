@@ -31,6 +31,10 @@ th{
 }
 
 /* data */
+small{
+  display: block;
+  color: gray;
+}
 .status_icon{
   width: 1ch;
 }
