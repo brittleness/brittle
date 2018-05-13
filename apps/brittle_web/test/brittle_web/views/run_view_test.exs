@@ -7,12 +7,20 @@ defmodule Brittle.Web.RunViewTest do
            |> RunView.short_revision() == "df54993"
   end
 
-  test "status_icon/1 returns a check mark" do
-    assert %Run{failure_count: 0} |> RunView.status_icon() == "✓"
+  test "status_icon/1 returns a check mark for a passing run" do
+    assert RunView.status_icon(%Run{failure_count: 0}) == "✓"
   end
 
-  test "status_icon/1 returns a cross" do
-    assert %Run{failure_count: 1} |> RunView.status_icon() == "✗"
+  test "status_icon/1 returns a cross for a failing run" do
+    assert RunView.status_icon(%Run{failure_count: 1}) == "✗"
+  end
+
+  test "status_icon/1 returns a check mark for 'passed'" do
+    assert RunView.status_icon("passed") == "✓"
+  end
+
+  test "status_icon/1 returns a cross for 'failed'" do
+    assert RunView.status_icon("failed") == "✗"
   end
 
   test "status/1 returns :passed with no failures" do

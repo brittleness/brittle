@@ -18,7 +18,7 @@
   <tbody class="<%= status(run) %>">
     <tr>
       <td class="status_icon"><%= status_icon(run) %></td>
-      <td><%= link("# #{run.id}", to: Routes.suite_run_result_path(@conn, :index, @suite, run)) %></td>
+      <td><%= link("# #{run.id}", to: Routes.suite_run_path(@conn, :show, @suite, run)) %></td>
       <td><%= run.branch %></td>
       <td><abbr title="<%= run.revision %>"><%= short_revision(run) %></abbr><%= if run.dirty do %> <small>(dirty)</small><% end %></td>
       <td><time datetime="<%= DateTime.to_iso8601(run.finished_at) %>"><%= run.finished_at %></time></td>

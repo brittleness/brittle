@@ -6,8 +6,14 @@ defmodule Brittle.Web.RunView do
     String.slice(revision, 0..6)
   end
 
-  def status_icon(%Run{failure_count: 0}), do: "✓"
-  def status_icon(%Run{failure_count: _}), do: "✗"
+  def status_icon(%Run{} = run) do
+    run
+    |> status()
+    |> Atom.to_string()
+    |> status_icon()
+  end
+  def status_icon("passed"), do: "✓"
+  def status_icon("failed"), do: "✗"
 
   def status(%Run{failure_count: 0}), do: :passed
   def status(%Run{failure_count: _}), do: :failed
