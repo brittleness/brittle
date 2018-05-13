@@ -34,10 +34,10 @@ th{
 .status_icon{
   width: 1ch;
 }
-tbody.passed .status_icon{
+.passed .status_icon{
   color: green;
 }
-tbody.failed .status_icon{
+.failed .status_icon{
   color: red;
 }
 
@@ -52,9 +52,9 @@ tbody.failed .status_icon{
   border-radius: 0.25em;
   min-width: 0.5em;
 }
-tbody.passed .bar span{
+.passed .bar span{
   background-color: green;
 }
-tbody.failed .bar span{
+.failed .bar span{
   background-color: red;
 }
