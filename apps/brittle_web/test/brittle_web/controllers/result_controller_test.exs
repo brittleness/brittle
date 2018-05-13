@@ -20,6 +20,7 @@ defmodule Brittle.Web.ResultControllerTest do
   test "shows all results for a run", %{body: body} do
     assert body =~ ~s(<td class="status_icon">✓</td>)
     assert body =~ ~s(Elixir.ExampleTest)
+    assert body =~ ~s(test/example_test.exs:12)
     assert body =~ ~s(test passes)
     assert body =~ ~s(<time datetime="20.314 s">20.31 s</time>)
     assert body =~ ~s(<small>(98.07 %\)</small>)

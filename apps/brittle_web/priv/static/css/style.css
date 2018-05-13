@@ -31,10 +31,13 @@ th{
 }
 
 /* data */
-small, .module{
+small, .module, .path{
   font-size: 0.9em;
   display: block;
   color: gray;
+}
+.path{
+  font-family: SF Mono, Monaco, monospace;
 }
 .status_icon{
   width: 1ch;

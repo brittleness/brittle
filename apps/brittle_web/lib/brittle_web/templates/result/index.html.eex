@@ -17,6 +17,7 @@
           <%= result.test.module %>
         </span>
         <%= result.test.name %>
+        <div class="path"><%= result.test.file %>:<%= result.test.line %></div>
       </td>
       <td class="duration">
         <time datetime="<%= to_time_component(result.duration) %>"><%= to_human(result.duration) %></time>
