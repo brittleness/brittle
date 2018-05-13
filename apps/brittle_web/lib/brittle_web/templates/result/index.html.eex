@@ -5,7 +5,7 @@
   <thead>
     <tr>
       <th colspan="2">Test</th>
-      <th>Duration</th>
+      <th class="duration">Duration</th>
     </tr>
   </thead>
   <%= for result <- @run.results do %>
@@ -18,7 +18,7 @@
         </span>
         <%= result.test.name %>
       </td>
-      <td>
+      <td class="duration">
         <time datetime="<%= to_time_component(result.duration) %>"><%= to_human(result.duration) %></time>
         <small>(<%= Float.round(result.duration / @run.duration * 100, 2) %> %)</small>
       </td>

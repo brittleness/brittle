@@ -12,7 +12,7 @@
       <th>Tests</th>
       <th>Excludes</th>
       <th>Failures</th>
-      <th>Duration</th>
+      <th class="duration">Duration</th>
     </tr>
   </thead>
   <%= for run <- @runs do %>
@@ -27,7 +27,7 @@
       <td><%= run.test_count %></td>
       <td><%= run.excluded_count %></td>
       <td><%= run.failure_count %></td>
-      <td><time datetime="<%= to_time_component(run.duration) %>"><%= to_human(run.duration) %></time></td>
+      <td class="duration"><time datetime="<%= to_time_component(run.duration) %>"><%= to_human(run.duration) %></time></td>
     </tr>
     <tr>
       <td colspan="10">
