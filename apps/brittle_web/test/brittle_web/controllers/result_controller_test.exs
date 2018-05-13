@@ -26,7 +26,11 @@ defmodule Brittle.Web.ResultControllerTest do
   end
 
   test "orders the results by their statuses, failures first", %{body: body} do
-    assert Regex.scan(~r[✓|✗], body) == [~w(✗), ~w(✓)]
+    assert Regex.scan(~r[✓|✗], body) == [~w(✗), ~w(✓), ~w(✓)]
+  end
+
+  test "after statuses, orders results by their durations, slowest first", %{body: body} do
+    assert Regex.scan(~r[\d+.\d{3} s], body) == [["6.314 s"], ["20.314 s"], ["0.314 s"]]
   end
 
   test "shows a duration bar for each result", %{body: body} do

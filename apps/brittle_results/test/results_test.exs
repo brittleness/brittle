@@ -45,7 +45,7 @@ defmodule Brittle.ResultsTest do
     {:ok, %Run{results: [%Result{} = result | _]}} = Results.create_run(attributes)
 
     assert result.status == "passed"
-    assert result.duration == 20313727
+    assert result.duration == 313727
   end
 
   test "create_run/1 creates a test", %{attributes: attributes} do

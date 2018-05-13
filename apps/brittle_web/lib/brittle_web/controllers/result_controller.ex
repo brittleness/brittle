@@ -7,7 +7,7 @@ defmodule Brittle.Web.ResultController do
     result_query =
       Result
       |> Ecto.Query.preload(:test)
-      |> Ecto.Query.order_by(:status)
+      |> Ecto.Query.order_by([asc: :status, desc: :duration])
 
     run =
       Run
