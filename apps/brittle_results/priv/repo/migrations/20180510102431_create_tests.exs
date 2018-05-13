@@ -5,6 +5,8 @@ defmodule Brittle.Repo.Migrations.CreateTests do
     create table(:tests) do
       add(:module, :string)
       add(:name, :string)
+      add(:file, :string)
+      add(:line, :integer)
 
       timestamps()
     end

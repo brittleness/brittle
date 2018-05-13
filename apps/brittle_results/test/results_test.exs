@@ -53,5 +53,7 @@ defmodule Brittle.ResultsTest do
 
     assert test.module == "Elixir.ExampleTest"
     assert test.name == "test passes"
+    assert test.file == "test/example_test.exs"
+    assert test.line == 12
   end
 end

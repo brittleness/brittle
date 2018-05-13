@@ -77,7 +77,9 @@ defmodule Brittle.Fixtures do
   def attributes(:test) do
     %{
       module: "Elixir.ExampleTest",
-      name: "test passes"
+      name: "test passes",
+      file: "test/example_test.exs",
+      line: 12
     }
   end
 
