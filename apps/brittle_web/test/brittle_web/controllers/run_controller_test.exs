@@ -20,7 +20,6 @@ defmodule Brittle.Web.RunControllerTest do
   test "shows all runs for a suite", %{body: body, suite: %{id: suite_id}, run: %{id: run_id}} do
     assert body =~ ~s(<td class="status_icon">✓</td>)
     assert body =~ ~s(<a href="/suites/#{suite_id}/runs/#{run_id}/results"># #{run_id}</a>)
-    assert body =~ "Alices-MBP.fritz.box"
     assert body =~ "master"
 
     assert body =~
