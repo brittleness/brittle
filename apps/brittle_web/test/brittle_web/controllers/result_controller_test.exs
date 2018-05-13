@@ -25,6 +25,10 @@ defmodule Brittle.Web.ResultControllerTest do
     assert body =~ ~s(<small>(98.07 %\)</small>)
   end
 
+  test "orders the results by their statuses, failures first", %{body: body} do
+    assert Regex.scan(~r[✓|✗], body) == [~w(✗), ~w(✓)]
+  end
+
   test "shows a duration bar for each result", %{body: body} do
     assert body =~ ~s(<span style="width: 98.06891343117537%"></span>)
   end
