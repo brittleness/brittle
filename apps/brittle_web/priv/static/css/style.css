@@ -52,6 +52,9 @@ small, .module, .path{
 .failed .status_icon{
   color: red;
 }
+td {
+  word-break: break-word;
+}
 
 /* bar */
 .bar{
