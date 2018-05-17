@@ -12,7 +12,7 @@
   </tr>
   <tr>
     <td class="bar" colspan="10">
-      <span style="width: <%= @run.duration / @slowest.duration * 100 %>%"></span>
+      <span style="width: <%= @run.duration / (assigns[:slowest] || @run).duration * 100 %>%"></span>
     </td>
   </tr>
 </tbody>
