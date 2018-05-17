@@ -15,24 +15,7 @@
     </tr>
   </thead>
   <%= for run <- @runs do %>
-  <tbody class="<%= status(run) %>">
-    <tr>
-      <td class="status_icon"><%= status_icon(run) %></td>
-      <td><%= link("# #{run.id}", to: Routes.suite_run_path(@conn, :show, @suite, run)) %></td>
-      <td><%= run.branch %></td>
-      <td><abbr title="<%= run.revision %>"><%= short_revision(run) %></abbr><%= if run.dirty do %> <small>(dirty)</small><% end %></td>
-      <td><time datetime="<%= DateTime.to_iso8601(run.finished_at) %>"><%= run.finished_at %></time></td>
-      <td><%= run.test_count %></td>
-      <td><%= run.excluded_count %></td>
-      <td><%= run.failure_count %></td>
-      <td class="duration"><time datetime="<%= to_time_component(run.duration) %>"><%= to_human(run.duration) %></time></td>
-    </tr>
-    <tr>
-      <td class="bar" colspan="10">
-        <span style="width: <%= run.duration / @slowest.duration * 100 %>%"></span>
-      </td>
-    </tr>
-  </tbody>
+    <%= render "_run.html", run: run, suite: @suite, slowest: @slowest, conn: @conn %>
   <% end %>
 </table>
 </main>
