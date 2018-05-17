@@ -49,8 +49,11 @@ defmodule Brittle.ResultsTest do
   end
 
   test "create_run/1 creates a test", %{attributes: attributes} do
-    {:ok, %Run{results: [%Result{test: %Test{} = test} | _]}} = Results.create_run(attributes)
+    {:ok,
+     %Run{suite: suite, results: [%Result{test: %Test{} = test} | _]}} =
+      Results.create_run(attributes)
 
+    assert test.suite_id == suite.id
     assert test.module == "Elixir.ExampleTest"
     assert test.name == "test passes"
     assert test.file == "test/example_test.exs"

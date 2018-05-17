@@ -1,9 +1,10 @@
 defmodule Brittle.Test do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Brittle.Result
+  alias Brittle.{Suite, Result}
 
   schema "tests" do
+    belongs_to(:suite, Suite)
     has_many(:results, Result)
 
     field(:module, :string)
@@ -15,6 +16,6 @@ defmodule Brittle.Test do
   end
 
   def changeset(test, attributes) do
-    cast(test, attributes, ~w(module name file line))
+    cast(test, attributes, ~w(module name file line suite_id))
   end
 end

@@ -1,7 +1,7 @@
 defmodule Brittle.Run do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Brittle.{Suite, Result}
+  alias Brittle.{Repo, Suite, Result}
   require Ecto.Query
 
   schema "runs" do
@@ -24,13 +24,16 @@ defmodule Brittle.Run do
   end
 
   def changeset(run, attributes) do
+    suite = suite(attributes.suite)
+    attributes = inject_suite_into_tests(attributes, suite)
+
     run
     |> cast(
       attributes,
       ~w(digest hostname branch revision dirty test_count failure_count
-         excluded_count duration started_at finished_at)
+excluded_count duration started_at finished_at)
     )
-    |> put_assoc(:suite, suite(attributes.suite))
+    |> put_assoc(:suite, suite(suite))
     |> cast_assoc(:results)
   end
 
@@ -38,8 +41,28 @@ defmodule Brittle.Run do
     case Suite
          |> Ecto.Query.where(name: ^attributes.name)
          |> Brittle.Repo.one() do
-      %Suite{} = suite -> suite
-      _ -> Suite.changeset(%Suite{}, attributes)
+      %Suite{} = suite ->
+        suite
+
+      _ ->
+        %Suite{}
+        |> Suite.changeset(attributes)
+        |> Repo.insert!()
     end
+  end
+
+  defp inject_suite_into_tests(attributes, suite) do
+    results =
+      attributes.results
+      |> Enum.map(fn result ->
+        {_, test} =
+          Map.get_and_update(result, :test, fn test ->
+            {test, Map.put(test, :suite_id, suite.id)}
+          end)
+
+        test
+      end)
+
+    %{attributes | results: results}
   end
 end

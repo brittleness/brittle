@@ -3,6 +3,8 @@ defmodule Brittle.Repo.Migrations.CreateTests do
 
   def change do
     create table(:tests) do
+      add(:suite_id, references(:suites))
+
       add(:module, :string)
       add(:name, :string)
       add(:file, :string)
