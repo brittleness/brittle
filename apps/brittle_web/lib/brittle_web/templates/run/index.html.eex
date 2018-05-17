@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <%= for run <- @runs do %>
-    <%= render "_run.html", run: run, suite: @suite, slowest: @slowest, conn: @conn %>
+    <%= render "_run.html", run: run, suite: @suite, slowest: @slowest %>
   <% end %>
 </table>
 </main>
