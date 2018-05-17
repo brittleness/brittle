@@ -28,10 +28,8 @@
       <td class="duration"><time datetime="<%= to_time_component(run.duration) %>"><%= to_human(run.duration) %></time></td>
     </tr>
     <tr>
-      <td colspan="10">
-        <div class="bar">
-          <span style="width: <%= run.duration / @slowest.duration * 100 %>%"></span>
-        </div>
+      <td class="bar" colspan="10">
+        <span style="width: <%= run.duration / @slowest.duration * 100 %>%"></span>
       </td>
     </tr>
   </tbody>

@@ -57,7 +57,7 @@ td {
 }
 
 /* bar */
-.bar{
+.bar div{
   background-color: whitesmoke;
   border-radius: 0.25em;
 }
