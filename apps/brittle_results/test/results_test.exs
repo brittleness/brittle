@@ -56,4 +56,12 @@ defmodule Brittle.ResultsTest do
     assert test.file == "test/example_test.exs"
     assert test.line == 12
   end
+
+  test "create_run/1 links results to existing tests", %{attributes: attributes} do
+    {:ok, %Run{results: [%Result{test: %Test{id: id}} | _]}} =
+      Results.create_run(attributes)
+
+    {:ok, %Run{results: [%Result{test: %Test{id: ^id}} | _]}} =
+      Results.create_run(attributes(:failed_run))
+  end
 end

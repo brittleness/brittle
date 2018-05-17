@@ -1,5 +1,5 @@
 defmodule Brittle.Results do
-  alias Brittle.{Repo, Run}
+  alias Brittle.{Repo, Run, Test}
 
   def create_run(attributes \\ %{}) do
     digest = digest(attributes)
