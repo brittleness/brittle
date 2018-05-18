@@ -30,9 +30,7 @@ defmodule Brittle.Web.RunControllerTest do
       assert body =~
       ~s(<td><abbr title="df54993999a5b340c8d3949e526ae91dba09a351">df54993</abbr></td>)
 
-      assert body =~ ~s(<td>617</td>)
-      assert body =~ ~s(<td>4</td>)
-      assert body =~ ~s(<td>0</td>)
+      assert body =~ ~s(<td>0 / 613</td>)
       assert body =~ ~s(<time datetime="20.714 s">20.71 s</time>)
 
       assert body =~
@@ -80,9 +78,7 @@ defmodule Brittle.Web.RunControllerTest do
       assert body =~
                ~s(<td><abbr title="df54993999a5b340c8d3949e526ae91dba09a351">df54993</abbr></td>)
 
-      assert body =~ ~s(<td>617</td>)
-      assert body =~ ~s(<td>4</td>)
-      assert body =~ ~s(<td>0</td>)
+      assert body =~ ~s(<td>0 / 613</td>)
       assert body =~ ~s(<time datetime="20.714 s">20.71 s</time>)
 
       assert body =~

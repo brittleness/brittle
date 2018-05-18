@@ -5,8 +5,6 @@
       <th>Branch</th>
       <th>Revision</th>
       <th>Finished at</th>
-      <th>Tests</th>
-      <th>Excludes</th>
       <th>Failures</th>
       <th class="duration">Duration</th>
     </tr>
