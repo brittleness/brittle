@@ -1,21 +1,4 @@
 <h1><%= @suite.name %></h1>
 <h2>Runs</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="2">Run</th>
-      <th>Branch</th>
-      <th>Revision</th>
-      <th>Finished at</th>
-      <th>Tests</th>
-      <th>Excludes</th>
-      <th>Failures</th>
-      <th class="duration">Duration</th>
-    </tr>
-  </thead>
-  <%= for run <- @runs do %>
-    <%= render "_run.html", run: run, suite: @suite, slowest: @slowest %>
-  <% end %>
-</table>
-</main>
+<%= render "_runs.html", runs: @runs, suite: @suite, slowest: @slowest %>

@@ -1,21 +1,7 @@
 <h1><%= link(@suite.name, to: Routes.suite_run_path(@conn, :index, @suite)) %></h1>
 <h2>Run #<%= @run.id %></h2>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="2">Run</th>
-      <th>Branch</th>
-      <th>Revision</th>
-      <th>Finished at</th>
-      <th>Tests</th>
-      <th>Excludes</th>
-      <th>Failures</th>
-      <th class="duration">Duration</th>
-    </tr>
-  </thead>
-  <%= render "_run.html", run: @run, suite: @suite, conn: @conn %>
-</table>
+<%= render "_runs.html", runs: [@run], suite: @suite %>
 
 <h3>Results</h3>
 
