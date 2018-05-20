@@ -1,9 +1,10 @@
 defmodule Brittle.Web.RunControllerTest do
   use Brittle.Web.ConnCase
   import Brittle.Fixtures
+  alias Brittle.{Repo, Run}
 
   setup %{conn: conn} do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Brittle.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
     [run | _] = [fixture!(:run), fixture!(:failed_run)]
 
     [conn: conn, run: run]
@@ -115,11 +116,30 @@ defmodule Brittle.Web.RunControllerTest do
     test "shows failures for each result", %{body: body} do
       assert body =~ ~s(<pre>Assertion with == failed</pre>)
       assert body =~ ~s(<pre>assert true == false</pre>)
-      assert body =~ ~s(<pre>    test/ex_unit_data_test.exs:30: ExampleTest.&quot;test fails&quot;/1\n</pre>)
+
+      assert body =~
+               ~s(<pre>    test/ex_unit_data_test.exs:30: ExampleTest.&quot;test fails&quot;/1\n</pre>)
     end
 
     test "shows a duration bar for each result", %{body: body} do
       assert body =~ ~s(<span style="width: 98.06891343117537%"></span>)
+    end
+  end
+
+  describe "create" do
+    test "creates a run", %{conn: conn} do
+      conn
+      |> put_req_header("content-type", "application/json")
+      |> post("/api/runs", Jason.encode!(attributes(:run)))
+      |> response(201)
+
+      assert %Run{
+               revision: "df54993999a5b340c8d3949e526ae91dba09a351",
+               failure_count: 0
+             } =
+               Run
+               |> Ecto.Query.last()
+               |> Repo.one()
     end
   end
 end

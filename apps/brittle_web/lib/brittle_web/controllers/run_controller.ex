@@ -1,7 +1,7 @@
 defmodule Brittle.Web.RunController do
   require Ecto.Query
   use Brittle.Web, :controller
-  alias Brittle.{Repo, Suite, Run, Result}
+  alias Brittle.{Repo, Results, Suite, Run, Result}
 
   def index(conn, %{"suite_id" => suite_id}) do
     run_query = Ecto.Query.order_by(Run, desc: :inserted_at)
@@ -28,5 +28,10 @@ defmodule Brittle.Web.RunController do
       |> Repo.get(id)
 
     render(conn, "show.html", suite: run.suite, run: run)
+  end
+
+  def create(conn, payload) do
+    {:ok, %Run{}} = Results.create_run(payload)
+    send_resp(conn, 201, "")
   end
 end
