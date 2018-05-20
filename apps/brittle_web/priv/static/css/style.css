@@ -29,6 +29,9 @@ td:last-child, th:last-child{
 th{
   text-align: left;
 }
+pre{
+  font: 0.8em/1.4 SF Mono, Monaco, monospace;
+}
 
 /* data */
 small, .module, .path{

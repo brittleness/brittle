@@ -29,6 +29,16 @@
       </td>
     </tr>
     <tr>
+      <td>
+      <td colspan="2">
+      <%= for failure <- result.failures do %>
+        <pre><%= failure.message %></pre>
+        <pre><%= failure.code %></pre>
+        <pre><%= failure.stacktrace %></pre>
+      <% end %>
+      </td>
+    </tr>
+    <tr>
       <td class="bar" colspan="10">
         <div>
           <span style="width: <%= result.duration / @run.duration * 100 %>%"></span>

@@ -112,6 +112,12 @@ defmodule Brittle.Web.RunControllerTest do
              ]
     end
 
+    test "shows failures for each result", %{body: body} do
+      assert body =~ ~s(<pre>Assertion with == failed</pre>)
+      assert body =~ ~s(<pre>assert true == false</pre>)
+      assert body =~ ~s(<pre>    test/ex_unit_data_test.exs:30: ExampleTest.&quot;test fails&quot;/1\n</pre>)
+    end
+
     test "shows a duration bar for each result", %{body: body} do
       assert body =~ ~s(<span style="width: 98.06891343117537%"></span>)
     end

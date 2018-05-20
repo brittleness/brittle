@@ -18,7 +18,7 @@ defmodule Brittle.Web.RunController do
   def show(conn, %{"id" => id}) do
     result_query =
       Result
-      |> Ecto.Query.preload(:test)
+      |> Ecto.Query.preload([:test, :failures])
       |> Ecto.Query.order_by([asc: :status, desc: :duration])
 
     run =
