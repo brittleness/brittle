@@ -67,4 +67,23 @@ defmodule Brittle.ResultsTest do
     {:ok, %Run{results: [%Result{test: %Test{id: ^id}} | _]}} =
       Results.create_run(attributes(:failed_run))
   end
+
+  describe "for a failed run" do
+    setup do
+      [attributes: attributes(:failed_run)]
+    end
+
+    test "create_run/1 creates failures for failed results", %{
+      attributes: attributes
+    } do
+      {:ok, %Run{results: [%Result{failures: [failure | _]} | _]}} =
+        Results.create_run(attributes)
+
+      assert failure.message == "Assertion with == failed"
+      assert failure.code == "assert true == false"
+
+      assert failure.stacktrace ==
+               "    test/ex_unit_data_test.exs:30: ExampleTest.\"test fails\"/1\n"
+    end
+  end
 end

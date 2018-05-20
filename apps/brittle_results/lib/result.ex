@@ -1,12 +1,13 @@
 defmodule Brittle.Result do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Brittle.{Repo, Run, Test}
+  alias Brittle.{Repo, Run, Test, Failure}
   require Ecto.Query
 
   schema "results" do
     belongs_to(:run, Run)
     belongs_to(:test, Test)
+    has_many(:failures, Failure)
 
     field(:status, :string)
     field(:duration, :integer)
@@ -18,6 +19,7 @@ defmodule Brittle.Result do
     result
     |> cast(attributes, ~w(status duration))
     |> put_assoc(:test, test(attributes.test))
+    |> cast_assoc(:failures)
   end
 
   defp test(attributes) do

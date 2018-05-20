@@ -27,15 +27,16 @@ defmodule Brittle.Fixtures do
   def attributes(:failed_run) do
     :run
     |> attributes()
-    |> Map.merge(
-      %{
-        duration: 27013727,
-        dirty: true,
-        failure_count: 3,
-        started_at: ~N[2018-05-05 09:00:38.910606],
-        finished_at: ~N[2018-05-05 09:01:05.924333]
-      }
-    )
+    |> Map.merge(%{
+      duration: 27_013_727,
+      dirty: true,
+      failure_count: 3,
+      started_at: ~N[2018-05-05 09:00:38.910606],
+      finished_at: ~N[2018-05-05 09:01:05.924333],
+      results: [
+        attributes(:failed_result)
+      ]
+    })
   end
 
   def attributes(:run_brittle_ex_unit) do
@@ -60,9 +61,17 @@ defmodule Brittle.Fixtures do
 
   def attributes(:failed_result) do
     %{
-      duration: 6313727,
+      duration: 6_313_727,
       status: "failed",
-      test: attributes(:test)
+      test: attributes(:test),
+      failures: [
+        %{
+          message: "Assertion with == failed",
+          code: "assert true == false",
+          stacktrace:
+            "    test/ex_unit_data_test.exs:30: ExampleTest.\"test fails\"/1\n"
+        }
+      ]
     }
   end
 
