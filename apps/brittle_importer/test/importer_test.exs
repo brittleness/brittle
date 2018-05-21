@@ -23,7 +23,11 @@ defmodule Brittle.ImporterTest do
     |> File.write!(payload)
 
     Importer.import!()
-    assert [%Run{revision: "df54993999a5b340c8d3949e526ae91dba09a351"}] = Repo.all(Run)
+
+    assert %Run{revision: "df54993999a5b340c8d3949e526ae91dba09a351"} =
+             Run
+             |> Ecto.Query.last()
+             |> Repo.one()
   end
 
   defp payload_directory do
