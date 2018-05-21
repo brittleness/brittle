@@ -24,7 +24,7 @@ defmodule Brittle.Run do
   end
 
   def changeset(run, attributes) do
-    suite = suite(attributes.suite)
+    suite = suite(attributes["suite"])
     attributes = inject_suite_into_tests(attributes, suite)
 
     run
@@ -33,13 +33,13 @@ defmodule Brittle.Run do
       ~w(digest hostname branch revision dirty test_count failure_count
 excluded_count duration started_at finished_at)
     )
-    |> put_assoc(:suite, suite(suite))
+    |> put_assoc(:suite, suite)
     |> cast_assoc(:results)
   end
 
   def suite(attributes) do
     case Suite
-         |> Ecto.Query.where(name: ^attributes.name)
+         |> Ecto.Query.where(name: ^attributes["name"])
          |> Brittle.Repo.one() do
       %Suite{} = suite ->
         suite
@@ -53,16 +53,15 @@ excluded_count duration started_at finished_at)
 
   defp inject_suite_into_tests(attributes, suite) do
     results =
-      attributes.results
-      |> Enum.map(fn result ->
+      Enum.map(attributes["results"], fn result ->
         {_, test} =
-          Map.get_and_update(result, :test, fn test ->
-            {test, Map.put(test, :suite_id, suite.id)}
+          Map.get_and_update(result, "test", fn test ->
+            {test, Map.put(test, "suite_id", suite.id)}
           end)
 
         test
       end)
 
-    %{attributes | results: results}
+    %{attributes | "results" => results}
   end
 end

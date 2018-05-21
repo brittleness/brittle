@@ -6,7 +6,7 @@ defmodule Brittle.Importer do
     |> Enum.each(fn(payload) ->
       payload
       |> File.read!
-      |> Jason.decode!(keys: :atoms!)
+      |> Jason.decode!()
       |> Brittle.Results.create_run
     end)
   end

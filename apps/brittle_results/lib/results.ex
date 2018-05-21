@@ -9,7 +9,7 @@ defmodule Brittle.Results do
         {:ok, run}
 
       _ ->
-        attributes = Map.put(attributes, :digest, digest)
+        attributes = Map.put(attributes, "digest", digest)
 
         %Run{}
         |> Run.changeset(attributes)

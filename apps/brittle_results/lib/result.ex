@@ -18,13 +18,16 @@ defmodule Brittle.Result do
   def changeset(result, attributes) do
     result
     |> cast(attributes, ~w(status duration))
-    |> put_assoc(:test, test(attributes.test))
+    |> put_assoc(:test, test(attributes["test"]))
     |> cast_assoc(:failures)
   end
 
   defp test(attributes) do
     case Test
-         |> Ecto.Query.where(module: ^attributes.module, name: ^attributes.name)
+         |> Ecto.Query.where(
+           module: ^attributes["module"],
+           name: ^attributes["name"]
+         )
          |> Brittle.Repo.one() do
       %Test{} = test ->
         test
