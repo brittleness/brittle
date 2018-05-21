@@ -7,5 +7,9 @@ defmodule Brittle.Repo.Migrations.CreateSuites do
 
       timestamps()
     end
+
+    alter table(:runs) do
+      add(:suite_id, references(:suites))
+    end
   end
 end

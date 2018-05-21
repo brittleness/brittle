@@ -4,7 +4,6 @@ defmodule Brittle.Repo.Migrations.CreateResults do
   def change do
     create table(:results) do
       add(:run_id, references(:runs))
-      add(:test_id, references(:tests))
 
       add(:status, :string)
       add(:duration, :integer)

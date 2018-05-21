@@ -3,8 +3,6 @@ defmodule Brittle.Repo.Migrations.CreateRuns do
 
   def change do
     create table(:runs) do
-      add(:suite_id, references(:suites))
-
       add(:digest, :string)
       add(:suite, :string)
       add(:hostname, :string)

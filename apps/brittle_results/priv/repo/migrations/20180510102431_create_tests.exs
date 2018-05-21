@@ -12,5 +12,9 @@ defmodule Brittle.Repo.Migrations.CreateTests do
 
       timestamps()
     end
+
+    alter table(:results) do
+      add(:test_id, references(:tests))
+    end
   end
 end
